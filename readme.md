@@ -7,14 +7,14 @@ Proof of concept of Gintell Rest N Go massage chair transaction using DuitNow QR
 
 ### Demo
 
-(duitnow.ss.my)[http://duitnow.ss.my]
+[duitnow.ss.my](http://duitnow.ss.my)
 
 ![Demo](/images/demo.png "Demo")
 
 ### Prerequisites
 
 1. SSM Company Registration Number
-2. (Razer Merchant Account)[https://booster.merchant.razer.com]
+2. [Razer Merchant Account](https://booster.merchant.razer.com)
 
 ### Installation
 
@@ -36,7 +36,7 @@ RAZER_SECRET_KEY=
 
 ### Getting DUITNOW_ACCOUNT & DUITNOW_REF82 value
 
-1. Login to (Razer Merchant Portal)[https://portal.merchant.razer.com]
+1. Login to [Razer Merchant Portal](https://portal.merchant.razer.com)
 
 2. Go to Payment Link > Generate Static QR-Code
 
