@@ -7,7 +7,7 @@ Proof of concept of Gintell Rest N Go massage chair transaction using DuitNow QR
 
 ### Demo
 
-[duitnow.ss.my](http://duitnow.ss.my)
+[http://duitnow.ss.my](http://duitnow.ss.my)
 
 ![Demo](/images/demo.png "Demo")
 
