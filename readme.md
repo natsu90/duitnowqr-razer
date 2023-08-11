@@ -32,7 +32,7 @@ RAZER_SECRET_KEY=
 
 4. `npm run start`
 
-5. Set Notification URL to `http://your-app-url/ipn` (in Transactions > Settings)
+5. Set Notification URL to `http://your-app-url/ipn`, and tick Enable Instant Payment Notification (IPN) checkbox in [Razer Merchant Portal](https://portal.merchant.razer.com) in Transactions > Settings
 
 ### Getting DUITNOW_ACCOUNT & DUITNOW_REF82 value
 
