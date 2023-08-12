@@ -21,12 +21,26 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/awesome-notifications/3.1.0/index.var.min.js" integrity="sha512-gS8jKzzlhaUACXtBbUmj9/ITyZEAMM5TNwcL2Y226Xh6J/xH8mYzm6C/tHFkRVbi+tV1uyW7pIMSTehhBt6sBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script type="text/javascript">
 
-            const events = new EventSource("/sse/<%= refid %>");
+            // Somehow does not work on cloud
+            // const events = new EventSource("/sse/<%= refid %>");
 
-            events.onmessage = (event) => {
-                const message = event.data;
-                new AWN().modal(message)
-            };
+            // events.onmessage = (event) => {
+            //     const message = event.data;
+            //     new AWN().modal(message)
+            // };
+
+            // Short Polling, alternative to SSE
+            const interval = 1000
+            const polling = () => {
+
+                fetch('/poll/<%= refid %>').then(async (res) => {
+                    message = await res.text()
+                    if (message) new AWN().modal(message)
+                    setTimeout(polling(), interval)
+                })
+            }
+            setTimeout(polling(), interval)
+
           </script>
     </body>
 </html>

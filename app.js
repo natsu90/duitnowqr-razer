@@ -13,6 +13,7 @@ let clients = [];
 
 app.use(formidable())
 app.engine('html', require('ejs').renderFile)
+app.disable('view cache')
 
 // Home page
 app.get('/', (req, res) => {
@@ -96,6 +97,21 @@ app.get('/sse/:refid', (req, res) => {
   })
 })
 
+// Short Polling // because SSE does not work on cloud
+app.get('/poll/:refid', (req, res) => {
+
+  let message = ''
+  const refid = req.params.refid
+  const clientIndex = clients.findIndex(client => client.id == refid)
+
+  if (clientIndex >= 0 && clients[clientIndex].hasOwnProperty('message')) {
+    message = clients[clientIndex].message
+    clients[clientIndex].message = ''
+  }
+
+  res.send(message)
+})
+
 // Razer Callback URL
 app.post('/ipn', (req, res) => {
 
@@ -122,7 +138,10 @@ app.post('/ipn', (req, res) => {
   }
 
   // push message to SSE client
-  clients[clientIndex].response.write(`data: ${message}\n\n`)
+  if (clients[clientIndex].hasOwnProperty('response'))
+    clients[clientIndex].response.write(`data: ${message}\n\n`)
+  // push message to Short Polling
+  clients[clientIndex].message = message
   
   res.send('OK')
 })
