@@ -60,6 +60,7 @@ RAZER_SECRET_KEY=
 
 3. Transaction fee 0.85%
 
+4. Annual fee RM99/year, waived 1st year
 
 ### License
 
