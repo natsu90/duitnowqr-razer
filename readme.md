@@ -11,11 +11,13 @@ Proof of concept of Gintell Rest N Go massage chair transaction using DuitNow QR
 
 ![Demo](/images/demo.png "Demo")
 
-1. A unique order ID is assigned to the webpage each time it is loaded
+1. A unique order ID is assigned to the webpage each time it is loaded.
 
-2. The IPN webhook will try to catch any payment that has a match with the order ID
+2. A DuitNow QR code is dynamically generated with the order ID imprinted.
 
-3. If there's any payment with the matched order ID, the webhook will pass a message and trigger a popup to the opened webpage earlier
+3. The IPN webhook will try to catch any DuitNow payment that matched the order ID.
+
+4. If there is any payment with the matched order ID, the webhook will pass a necesary message and trigger a popup to the opened webpage earlier.
 
 ### Prerequisites
 
